@@ -6,12 +6,11 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:23:16 by usuario           #+#    #+#             */
-/*   Updated: 2022/06/04 18:34:14 by usuario          ###   ########.fr       */
+/*   Updated: 2022/06/05 18:10:53 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
 int	ft_print_percent(void)
 {

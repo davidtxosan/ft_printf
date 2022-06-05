@@ -6,13 +6,12 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:24:02 by usuario           #+#    #+#             */
-/*   Updated: 2022/06/04 18:50:00 by usuario          ###   ########.fr       */
+/*   Updated: 2022/06/05 18:10:41 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
-#include <stdio.h>
 
 void	ft_put_ptr(uintptr_t num)
 {

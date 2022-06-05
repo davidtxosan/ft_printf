@@ -6,13 +6,12 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:23:19 by usuario           #+#    #+#             */
-/*   Updated: 2022/06/04 18:58:49 by usuario          ###   ########.fr       */
+/*   Updated: 2022/06/05 18:11:00 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
-#include <stdio.h>
 
 int	ft_number_length(unsigned	int num)
 {

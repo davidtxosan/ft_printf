@@ -6,7 +6,7 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 13:14:22 by usuario           #+#    #+#             */
-/*   Updated: 2022/06/04 19:00:30 by usuario          ###   ########.fr       */
+/*   Updated: 2022/06/05 18:10:34 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <stdio.h>
 
 int		ft_putchar(int c);
 int		ft_formats(va_list args, const char format);

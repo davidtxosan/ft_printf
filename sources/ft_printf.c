@@ -6,13 +6,12 @@
 /*   By: usuario <usuario@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 10:46:35 by usuario           #+#    #+#             */
-/*   Updated: 2022/06/05 11:56:24 by usuario          ###   ########.fr       */
+/*   Updated: 2022/06/05 18:10:46 by usuario          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
 int	ft_putchar(int c)
 {
