@@ -1,40 +1,56 @@
-NAME	=	libftprintf.a
+#Variables
 
-LIBFT_PATH	=	./libft
-LIBFT	=	$(LIBFT_PATH)/libft.a
+NAME			= libftprintf.a
+LIBFT			= libft
+SOURCES_DIR 	= sources/
+OBJECT_DIR		= obj/
+CC				= gcc
+CFLAGS			= -Wall -Wextra -Werror
+RM				= rm -f
+ARFLAGS			= ar rcs
 
-CC	=	clang
-CFLAGS	=	-Wall -Wextra -Werror
+#Sources
+SOURCE_FILES	= ft_printf ft_print_hex ft_print_number ft_print_percent ft_print_pointer ft_print_str ft_print_unsigned
 
-RM	=	rm -f
+# le añado prefijo y sufijo a las sources para no repetir el directorio y la terminacion de cada archivo
 
-ARFLAGS	=	rcs
+SRC 		= 	$(addprefix $(SOURCES_DIR), $(addsuffix .c, $(SOURCE_FILES)))
+OBJ 		= 	$(addprefix $(OBJECT_DIR), $(addsuffix .o, $(SOURCE_FILES)))
 
-SOURCES	=		./sources/ft_printf.c \
+OBJF		=	.cache_exists
 
+all:	$(NAME)
 
-OBJECTS	=	$(SOURCES:.c=.o)
+$(NAME):	$(OBJ)
+			@make -C $(LIBFT)
+			@cp libft/libft.a .
+			@mv libft.a $(NAME)
+			@$(ARFLAGS) $(NAME) $(OBJ)
+			@echo "ft_printf compiled!"
 
-.c.o:
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(LIBFT_PATH)
+$(OBJECT_DIR)%.o: $(SOURCES_DIR)%.c | $(OBJF)
+			@echo "Compiling: $<"
+			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-all:	$(LIBFT) $(NAME)
-
-$(LIBFT):
-		make -C $(LIBFT_PATH)
-
-$(NAME):	$(OBJECTS)
-			cp $(LIBFT) $(NAME)
-			ar $(ARFLAGS) $(NAME) $(OBJECTS)
-
+$(OBJF):
+			@mkdir -p $(OBJECT_DIR)
+			
 clean:
-		make clean -C $(LIBFT_PATH)
-		$(RM) $(OBJECTS)
+		@$(RM) -rf $(OBJECT_DIR)
+		@make clean -C $(LIBFT)
+		@echo "ft_print object files cleaned"
 
 fclean:	clean
-		make fclean -C $(LIBFT_PATH)
-		$(RM) $(NAME)
+		@$(RM)  $(LIBFT)/libft.a
+		@$(RM)  $(NAME)
+		@echo "archivos ejecutables de ft_print borrados"
+		@echo "archivos ejecutables de libft borrados"
+
 
 re:	fclean all
+	@echo "limpieza y reconstrucción de ft_print total!"
 
-.PHONY:	all clean fclean re libft
+norm:	
+		@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
+
+.PHONY:	all clean fclean re norm
